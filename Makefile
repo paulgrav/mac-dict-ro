@@ -8,7 +8,7 @@
 
 # You need to edit these values.
 
-DICT_NAME		=	"Dicționar Explicatic ale Limbii Române"
+DICT_NAME		=	"DEX"
 DICT_SRC_PATH		=	DEX.xml
 CSS_PATH		=	DEX.css
 PLIST_PATH		=	DEXInfo.plist

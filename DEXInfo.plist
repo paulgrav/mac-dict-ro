@@ -20,7 +20,7 @@
 	<string>DEX_prefs.html</string> -->
 	<key>DCSDictionaryXSL</key>
 	<string>DEX.xsl</string>
-	<key>DCSDictionaryDefaultPrefs</key>
+<!--	<key>DCSDictionaryDefaultPrefs</key>
 	<dict>
 		<key>pronunciation</key>
 		<string>0</string>
@@ -30,6 +30,6 @@
 		<string>1</string>
 		<key>version</key>
 		<string>1</string>
-	</dict>
+	</dict>-->
 </dict>
 </plist>
