@@ -1,8 +1,5 @@
+#!/usr/bin/php
 <?php
-
-
-
-
 
 echo <<<EOD
 <?xml version="1.0" encoding="UTF-8"?>
@@ -27,37 +24,10 @@ echo <<<EOD
 </d:entry>
 EOD;
 
-
-
-
-
-
-
-
-
-
-
-
-
-$link = mysql_connect('demeter', 'root')
-    or die('Could not connect: ' . mysql_error());
+$link = mysql_connect('demeter', 'root') or die('Could not connect: ' . mysql_error());
 
 mysql_select_db('dex') or die('Could not select database');
 mysql_query("SET NAMES 'utf8'");
-// Performing SQL query
-
-
-
-
-
-
-//  LOOP Definitions
-
-	// GET words
-
-
-
-
 
 $search = array('ţ','ş','Ţ','Ş');
 $replace = array('ț','ș','Ț','Ș');
@@ -71,14 +41,15 @@ while ($line = mysql_fetch_array($lexems, MYSQL_ASSOC)) {
 	$lexem_word = $line['lexem_utf8_general'];
 	$lexem_id = $line['lexem_id'];
 	
+	// retrieve a list of similar words
 	$query = "SELECT wl_utf8_general from wordlist WHERE wl_lexem = $lexem_id ORDER BY wl_analyse;";
-	
 	$words = mysql_query($query);
 	$word_list = "";
 	while($row = mysql_fetch_array($words, MYSQL_ASSOC)) {		
 		$word_list .= '<d:index d:value="'. $row['wl_utf8_general']  .'"/>' . "\n";
 	}
 	
+	// retriece the definitions
 	$query = "SELECT HtmlRep FROM LexemDefinitionMap LEFT OUTER JOIN Definition ON (LexemDefinitionMap.DefinitionId = Definition.Id) WHERE LexemId = $lexem_id AND SourceId = 9";
 	$definitions = mysql_query($query);
 	$definition_list = "";
@@ -86,7 +57,7 @@ while ($line = mysql_fetch_array($lexems, MYSQL_ASSOC)) {
 		$definition_list .= "<li>" . $row['HtmlRep'] . "</li>\n";
 	}
 	
-	
+	// if were are missing a list of words, or deinitions, then there's no point displaying this entry
 	if(mysql_num_rows($words) == 0 OR mysql_num_rows($definitions) == 0) {
 		continue;
 	}
@@ -105,10 +76,9 @@ while ($line = mysql_fetch_array($lexems, MYSQL_ASSOC)) {
 EOD;
 
 	echo str_replace($search,$replace,$output);
-	//echo $output;
+
 	mysql_free_result($definitions);
 	mysql_free_result($words);
-	$prev_lexem_word = $lexem_word;
 }
 
 

@@ -1,0 +1,19 @@
+#!/bin/bash
+USER=root
+SERVER=demeter
+PASSWORD=
+DATABASE=dex
+MYSQL=/usr/local/mysql/bin/mysql
+
+
+echo "Downloading Database..."
+curl http://dexonline.ro/download/dex-database.sql.gz > contrib/dex-database.sql.gz
+
+echo "Extracting Databse..."
+gunzip contrib/dex-database.sql.gz
+
+echo "Importing Database..."
+$MYSQL -u $USER -h $SERVER -p $PASSWORD $DATABASE < contrib/dex-database.sql
+
+echo "Generating DEX.xml.  This may take some time....."
+./gen_dex_xml > DEX.xml
