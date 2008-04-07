@@ -1,1 +1,19 @@
-<pkmkdoc spec="1.12"><properties><title>DEX Dictionary Plugin</title><build>/Users/paul/Dev/Perso/mac-dex/distrib/DEX Dictionary Plugin.pkg</build><organization>net.stomer.mira.paul</organization><userSees ui="easy"/><min-target os="3"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><contents><choice title="Main Dictionary" id="dex" starts_selected="true" starts_enabled="true" starts_hidden="true"><customLoc mod="true">/Library/Dictionaries</customLoc><pkgref id="net.stomer.mira.paul.dexDictionaryappPlugin.dex.pkg"/></choice></contents><resources bg-scale="none" bg-align="topleft"/><flags/><extra-files/><item type="file">01dex.xml</item><mod>properties.userDomain</mod><mod>properties.systemDomain</mod><mod>properties.anywhereDomain</mod><mod>properties.customizeOption</mod><mod>extraFiles</mod><mod>properties.title</mod></pkmkdoc>
+<pkmkdoc spec="1.12"><properties><title>DEX Dictionary Plugin</title><build>/Users/paul/Dev/Perso/mac-dex/distrib/DEX Dictionary Plugin.pkg</build><organization>net.stomer.mira.paul</organization><userSees ui="easy"/><min-target os="3"/><domain system="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><contents><choice title="Main Dictionary" id="dex" starts_selected="true" starts_enabled="true" starts_hidden="true"><customLoc>/Library/Dictionaries</customLoc><pkgref id="net.stomer.mira.paul.dexDictionaryappPlugin.dex.pkg"/></choice></contents><resources bg-scale="none" bg-align="topleft"><locale lang="ro"/><locale lang="en"><resource mod="true" type="background">/Users/paul/Dev/Perso/mac-dex/dictionary.app.png</resource><resource mod="true" type="license">/Users/paul/Dev/Perso/mac-dex/gpl-2.0.txt</resource><resource mime-type="text/rtf" kind="embedded" type="welcome"><![CDATA[{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf270
+{\fonttbl\f0\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue238;}
+\deftab720
+\pard\pardeftab720\sa80\ql\qnatural
+
+\f0\b\fs34 \cf0 DEX Dictionary Plugin
+\b0\fs38 \
+\pard\pardeftab720\sa320\ql\qnatural
+
+\fs24 \cf0 Version: v0.1 - OS X 10.5
+\fs26 \
+
+\b Support and source code
+\b0 : \cf2 mac-dex.googlecode.com\cf0 \
+\pard\pardeftab720\ql\qnatural
+
+\fs22 \cf0 This plugin and dictionary are licensed under {\field{\*\fldinst{HYPERLINK "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt"}}{\fldrslt \cf2 \ul \ulc2 GPLv2}}
+\fs20 .}]]></resource></locale></resources><flags/><preinstall><action id="com.apple.packagemaker.actions.getapplication"><item1-title>com.apple.Dictionary</item1-title><item2-title>Dictionary</item2-title></action><action id="com.apple.packagemaker.actions.quitapplication"/><action id="com.apple.packagemaker.actions.getapplication"><item1-title>com.apple.DictionaryPanel</item1-title><item2-title>DictionaryPanel</item2-title></action><action id="com.apple.packagemaker.actions.quitapplication"/></preinstall><extra-files/><item type="file">01dex.xml</item><mod>properties.userDomain</mod><mod>preinstallActions.actions</mod><mod>properties.systemDomain</mod><mod>properties.customizeOption</mod><mod>properties.anywhereDomain</mod><mod>extraFiles</mod><mod>properties.title</mod></pkmkdoc>
